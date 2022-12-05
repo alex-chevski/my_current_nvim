@@ -1,0 +1,33 @@
+{
+  "diagnostic.enableMessage": "jump",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "sass",
+    "scss",
+    "markdown",
+    "pug",
+    "vue",
+    "json",
+    "javascript",
+    "typescriptreact",
+    "twig",
+    "html"
+  ],
+  "prettier.disableLanguages": ["css"],
+  "prettier.singleQuote": true,
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd",
+  "clangd.disableDiagnostics": true,
+  "scss.validate": false,
+  "css.validate": false,
+  "codeLens.enable": false,
+  "languageserver": {
+    "phpactor": {
+      "command": "phpactor",
+      "args": ["language-server"],
+      "trace.server": "verbose",
+      "filetypes": ["php"]
+    }
+  }
+}
