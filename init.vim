@@ -18,7 +18,7 @@ filetype plugin indent on
 syntax on
 
 "" Enable 256 colors on the terminal
-set t_Co=256
+" set t_Co=256
 set termguicolors
 
 " Switch off .swp files
@@ -122,10 +122,13 @@ call plug#begin()
 
 "" Visual
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'akinsho/bufferline.nvim', {'tag': 'v2.*' }
+Plug 'nvim-tree/nvim-web-devicons'
 
 "" Colorchemes
 Plug 'nikolvs/vim-sunbather'
@@ -167,7 +170,10 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 Plug 'algotech/ultisnips-php'
+Plug 'tobyS/vmustache'
+Plug 'tobyS/pdv'
 
 " Data Base
 Plug 'tpope/vim-dadbod'
@@ -187,6 +193,7 @@ call plug#end()
 "" Colorschemes
 set background=dark
 colorscheme	lucid
+let g:airline_theme='violet'
 
 "" NerdTree config
 nnoremap <C-n> :NERDTree<CR>
@@ -201,6 +208,17 @@ cnoremap @ <c-r>=expand("%:h")<cr>
 
 " Twig
 let g:neosnippet#snippets_directory='~/.vim/bundle/twig.vim/neosnippets'
+
+" buferline
+lua << EOF
+	require("bufferline").setup{}
+EOF
+
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
+" noremap <Leader><Tab> :Bw<CR>
+" noremap <Leader><S-Tab> :Bw!<CR>
+" noremap <C-t> :tabnew split<CR>
 
 " Data Base
 nnoremap <silent> <leader>du :DBUIToggle<CR>
@@ -218,6 +236,10 @@ autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 set tags+=tags,tags.vendors
+
+" PHP-doc
+let g:pdv_template_dir = $HOME ."/.local/share/nvim/plugged/pdv/templates_snip"
+nmap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
 
 " Сворачивание кода
